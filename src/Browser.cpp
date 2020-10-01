@@ -28,7 +28,18 @@ int Browser::init() {
 }
 
 void Browser::loop() {
-    SDL_Delay(2000);
+    SDL_Event event;
+    int quit = 0;
+
+    while(!quit) {
+        SDL_WaitEvent(&event);
+
+        if(event.type == SDL_QUIT) {
+            quit = 1;
+        }
+
+        //SDL_Delay(2000);
+    }
 }
 
 void Browser::destroy() {
