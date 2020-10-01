@@ -7,8 +7,7 @@ using namespace std;
 int main() {
     Browser browser;
 
-    browser.setValue(1);
-    cout << "Value: " << browser.getValue() << endl;
+    browser.init();
 
     return 0;
 }

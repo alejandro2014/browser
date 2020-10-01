@@ -6,7 +6,7 @@ OBJPATH=./obj
 BINPATH=./bin
 
 OPTC=-g
-OPTL=
+OPTL=-lSDL2
 
 OBJ1=Browser
 OBJ2=main
