@@ -9,7 +9,8 @@ OPTC=-g
 OPTL=
 
 OBJ1=Browser
-OBJ= ${OBJPATH}/${OBJ1}.o
+OBJ2=main
+OBJ=${OBJPATH}/${OBJ1}.o ${OBJPATH}/${OBJ2}.o
 
 ${BINPATH}/${EXE}: ${OBJ}
 	${CC} ${OBJ} -o ${BINPATH}/${EXE} ${OPTL}
