@@ -8,6 +8,8 @@ int main() {
     Browser browser;
 
     browser.init();
+    browser.loop();
+    browser.destroy();
 
     return 0;
 }

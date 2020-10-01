@@ -11,20 +11,27 @@ int Browser::init() {
         return 1;
     }
 
-    SDL_Window* window = SDL_CreateWindow("Browser v0.0.1", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+    this->window = SDL_CreateWindow("Browser v0.0.1", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
 
-    if (window == NULL) {
+    if (this->window == NULL) {
         cout << "Could not create window: " << SDL_GetError() << endl;
         return 1;
     }
 
-    SDL_Surface* screenSurface = SDL_GetWindowSurface(window);
+    SDL_Surface* screenSurface = SDL_GetWindowSurface(this->window);
 
-    SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
-    SDL_UpdateWindowSurface(window);
-    SDL_Delay(2000);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xAA, 0xAA, 0xAA));
+
+    SDL_UpdateWindowSurface(this->window);
 
     return 0;
+}
+
+void Browser::loop() {
+    SDL_Delay(2000);
+}
+
+void Browser::destroy() {
+    SDL_DestroyWindow(this->window);
+    SDL_Quit();
 }

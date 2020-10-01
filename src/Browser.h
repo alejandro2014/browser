@@ -1,8 +1,11 @@
+#include <SDL2/SDL.h>
+
 class Browser {
-    int value;
+    private:
+        SDL_Window* window;
 
     public:
         int init();
-        int getValue();
-        void setValue(int value);
+        void loop();
+        void destroy();
 };
