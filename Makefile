@@ -10,8 +10,9 @@ OPTL=-L/usr/local/lib -lSDL2 -lSDL2_ttf
 
 OBJ1=Browser
 OBJ2=Font
-OBJ3=main
-OBJ=${OBJPATH}/${OBJ1}.o ${OBJPATH}/${OBJ2}.o ${OBJPATH}/${OBJ3}.o
+OBJ3=SceneDrawer
+OBJ4=main
+OBJ=${OBJPATH}/${OBJ1}.o ${OBJPATH}/${OBJ2}.o ${OBJPATH}/${OBJ3}.o ${OBJPATH}/${OBJ4}.o
 
 ${BINPATH}/${EXE}: ${OBJ}
 	${CC} ${OBJ} -o ${BINPATH}/${EXE} ${OPTL}

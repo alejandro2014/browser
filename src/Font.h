@@ -20,6 +20,11 @@ public:
     Font(char const *path, int size, SDL_Color fg, SDL_Color bg);
     ~Font();
 
+    TTF_Font *getType();
+    SDL_Color getFgColor();
+    SDL_Color getBgColor();
+
+    SDL_Texture* printString(Font *font, SDL_Renderer *renderer, char *string, int x, int y);
     //SDL_Texture *printString(Font *font, SDL_Renderer *renderer, char *string, int x, int y);
     //SDL_Texture *getStringTexture(TTF_Font *font, SDL_Renderer *renderer, char *string, SDL_Color fgColor, SDL_Color bgColor);
 

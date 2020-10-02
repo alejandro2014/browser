@@ -18,6 +18,26 @@ Font::Font(const char *path, int size, SDL_Color fg, SDL_Color bg) {
     this->bgColor = bg;
 }
 
+SDL_Texture *getStringTexture(TTF_Font *font, SDL_Renderer *renderer, char *string, SDL_Color fgColor, SDL_Color bgColor) {
+    SDL_Surface *textSurface = TTF_RenderText_Shaded(font, string, fgColor, bgColor);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    SDL_FreeSurface(textSurface);
+
+    return texture;
+}
+
+TTF_Font* Font::getType() {
+    return this->type;
+}
+
+SDL_Color Font::getFgColor() {
+    return this->fgColor;
+}
+
+SDL_Color Font::getBgColor() {
+    return this->bgColor;
+}
+
 Font::~Font() {
     TTF_CloseFont(this->type);
 }
