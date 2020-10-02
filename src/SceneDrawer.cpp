@@ -7,7 +7,7 @@ SceneDrawer::SceneDrawer(SDL_Renderer *renderer) {
     this->renderer = renderer;
 }
 
-SDL_Texture* SceneDrawer::printString(Font* font, char *string, int x, int y) {
+SDL_Texture* SceneDrawer::printString(Font* font, const char *string, int x, int y) {
     SDL_Texture *texture = this->getStringTexture(font, renderer, string);
 
     SDL_Rect textLocation;
@@ -20,7 +20,7 @@ SDL_Texture* SceneDrawer::printString(Font* font, char *string, int x, int y) {
     return texture;
 }
 
-SDL_Texture* SceneDrawer::getStringTexture(Font *font, SDL_Renderer *renderer, char *string) {
+SDL_Texture* SceneDrawer::getStringTexture(Font *font, SDL_Renderer *renderer, const char *string) {
     SDL_Surface *textSurface = TTF_RenderText_Shaded(font->getType(), string, font->getFgColor(), font->getBgColor());
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, textSurface);
     SDL_FreeSurface(textSurface);
