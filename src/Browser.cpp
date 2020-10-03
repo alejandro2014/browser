@@ -10,7 +10,7 @@ using namespace std;
 Browser::Browser(Font* font) {
     //this->headerFont = font;
     //this->renderer = this->createRenderer(this->window);
-    //*this->sceneDrawer = SceneDrawer(this->renderer);
+    *this->sceneDrawer = SceneDrawer(this->renderer);
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         cout << "Could not initialize sdl2: " << SDL_GetError() << endl;
@@ -62,6 +62,7 @@ void Browser::loop() {
             quit = 1;
         }
 
+        this->sceneDrawer->drawScene();
         //this->sceneDrawer->printString(this->headerFont, "Titulo", 100, 100);
     }
 }
