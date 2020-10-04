@@ -13,16 +13,10 @@ Browser::Browser() {
         return;
     }
 
-    this->window = this->createWindow("Browser v0.0.1", 800, 600);
-
-    if (this->window == NULL) {
-        cout << "Could not create window: " << SDL_GetError() << endl;
-        return;
-    }
-
     TTF_Init();
 
-    this->screenSurface = SDL_GetWindowSurface(this->window);
+    this->window = this->createWindow("Browser v0.0.1", 800, 600);
+    //this->screenSurface = SDL_GetWindowSurface(this->window);
     this->sceneDrawer = new SceneDrawer(this->window, this->screenSurface);
 }
 
@@ -30,7 +24,7 @@ SDL_Window* Browser::createWindow(const char *title, int width, int height) {
     SDL_Window *window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
 
     if (window == NULL) {
-        printf("Could not create window: %s\n", SDL_GetError());
+        cout << "Could not create window: " << SDL_GetError() << endl;
     }
 
     return window;
@@ -63,5 +57,6 @@ void Browser::loop() {
 
 Browser::~Browser() {
     SDL_DestroyWindow(this->window);
+    TTF_Quit();
     SDL_Quit();
 }
