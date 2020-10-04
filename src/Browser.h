@@ -19,7 +19,7 @@ class Browser {
         SDL_Renderer* createRenderer(SDL_Window* window);
 
     public:
-        Browser(Font* font);
+        Browser();
         ~Browser();
 
         void loop();
