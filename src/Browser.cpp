@@ -16,7 +16,6 @@ Browser::Browser() {
     TTF_Init();
 
     this->window = this->createWindow("Browser v0.0.1", 800, 600);
-    //this->screenSurface = SDL_GetWindowSurface(this->window);
     this->sceneDrawer = new SceneDrawer(this->window, this->screenSurface);
 }
 

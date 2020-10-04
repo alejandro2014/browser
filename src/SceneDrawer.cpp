@@ -14,11 +14,10 @@ SceneDrawer::SceneDrawer(SDL_Window *window, SDL_Surface* screenSurface) {
 }
 
 void SceneDrawer::drawScene() {
-    //SDL_FillRect(this->screenSurface, NULL, SDL_MapRGB(this->screenSurface->format, 0xAA, 0xAA, 0xAA));
+    SDL_SetRenderDrawColor(this->renderer, 0x88, 0x88, 0x88, 255);
+    SDL_RenderClear(this->renderer);
 
     this->printString("Titulo", 200, 200);
-
-    //SDL_UpdateWindowSurface(this->window);
 }
 
 void SceneDrawer::printString(const char *string, int x, int y) {
