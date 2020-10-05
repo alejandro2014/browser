@@ -6,12 +6,18 @@
 using namespace std;
 
 SceneDrawer::SceneDrawer(SDL_Window *window, SDL_Surface* screenSurface) {
+    string *fontsBasePath = "/usr/share/fonts/truetype/msttcorefonts/";
+
     this->window = window;
     this->screenSurface = screenSurface;
 
     this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED);
-    this->font1 = new Font("/usr/share/fonts/truetype/msttcorefonts/Courier_New.ttf", 26, (SDL_Color) {200, 0, 0});
-    this->font2 = new Font("/usr/share/fonts/truetype/msttcorefonts/Courier_New_Bold.ttf", 26, (SDL_Color) {200, 0, 0});
+
+    string fontName1("/Courier_New.ttf");
+    string fontName2("/Courier_New_Bold.ttf");
+
+    this->font1 = new Font(fontsBasePath + fontName1, 26, (SDL_Color) {200, 0, 0});
+    this->font2 = new Font(fontsBasePath + fontName2, 26, (SDL_Color) {200, 0, 0});
 }
 
 void SceneDrawer::drawScene() {

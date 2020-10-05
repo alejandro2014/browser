@@ -2,7 +2,9 @@
 #define SCENE_DRAWER_H
 
 #include "Font.h"
+
 #include <SDL2/SDL.h>
+#include <string>
 
 class SceneDrawer {
 private:
@@ -16,7 +18,7 @@ public:
     ~SceneDrawer();
 
     void drawScene();
-    void printString(Font *font, const char *string, int x, int y);
+    void printString(Font *font, std::string *text, int x, int y);
 };
 
 #endif
