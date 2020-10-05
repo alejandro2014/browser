@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Font::Font(const char *path, int size, SDL_Color fg, SDL_Color bg) {
+Font::Font(const char *path, int size, SDL_Color fg) {
     this->type = TTF_OpenFont(path, size);
 
     if(this->type == NULL) {
@@ -15,7 +15,6 @@ Font::Font(const char *path, int size, SDL_Color fg, SDL_Color bg) {
     }
 
     this->fgColor = fg;
-    this->bgColor = bg;
 }
 
 TTF_Font* Font::getType() {
@@ -24,10 +23,6 @@ TTF_Font* Font::getType() {
 
 SDL_Color Font::getFgColor() {
     return this->fgColor;
-}
-
-SDL_Color Font::getBgColor() {
-    return this->bgColor;
 }
 
 Font::~Font() {
