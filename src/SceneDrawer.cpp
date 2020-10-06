@@ -19,11 +19,20 @@ SceneDrawer::SceneDrawer(SDL_Window *window, SDL_Surface* screenSurface) {
 }
 
 void SceneDrawer::drawScene() {
-    SDL_SetRenderDrawColor(this->renderer, 0x88, 0x88, 0x88, 255);
-    SDL_RenderClear(this->renderer);
+    SDL_Color backgroundColor;
+    backgroundColor.r = 0xCC;
+    backgroundColor.g = 0xCC;
+    backgroundColor.b = 0xCC;
 
+    this->clearBackground(&backgroundColor);
+    
     this->printString(this->font1, "Titulo", 200, 200);
     this->printString(this->font2, "Hola que tal", 200, 300);
+}
+
+void SceneDrawer::clearBackground(SDL_Color* backgroundColor) {
+    SDL_SetRenderDrawColor(this->renderer, backgroundColor->r, backgroundColor->g, backgroundColor->b, 255);
+    SDL_RenderClear(this->renderer);
 }
 
 void SceneDrawer::printString(Font *font, string text, int x, int y) {

@@ -20,6 +20,8 @@ public:
     ~SceneDrawer();
 
     void drawScene();
+
+    void clearBackground(SDL_Color* backgroundColor);
     void printString(Font *font, string text, int x, int y);
 
     string resolveFontName(string relativeFontName);
