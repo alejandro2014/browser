@@ -1,7 +1,4 @@
-#include "Font.h"
 #include "SceneDrawer.h"
-
-#include <SDL2/SDL.h>
 
 using namespace std;
 
@@ -31,10 +28,16 @@ void SceneDrawer::drawScene() {
     int y = 400;
     int interlinearSpace = 15;
 
-    this->printString(this->font3, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor", x, y + 0 * interlinearSpace);
-    this->printString(this->font3, "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis", x, y + 1 * interlinearSpace);
-    this->printString(this->font3, "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", x, y + 2 * interlinearSpace);
-    this->printString(this->font3, "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore", x, y + 3 * interlinearSpace);
+    vector<string> textLines;
+    textLines.push_back("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
+    textLines.push_back("incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis");
+    textLines.push_back("nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+    textLines.push_back("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore");
+
+    this->printString(this->font3, textLines[0], x, y + 0 * interlinearSpace);
+    this->printString(this->font3, textLines[1], x, y + 1 * interlinearSpace);
+    this->printString(this->font3, textLines[2], x, y + 2 * interlinearSpace);
+    this->printString(this->font3, textLines[3], x, y + 3 * interlinearSpace);
 }
 
 void SceneDrawer::clearBackground(SDL_Color* backgroundColor) {
