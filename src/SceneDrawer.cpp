@@ -16,18 +16,25 @@ SceneDrawer::SceneDrawer(SDL_Window *window, SDL_Surface* screenSurface) {
 
     this->font1 = new Font(fontName1, 26, (SDL_Color) {200, 0, 0});
     this->font2 = new Font(fontName2, 26, (SDL_Color) {200, 0, 0});
+    this->font3 = new Font(fontName1, 16, (SDL_Color) {0, 0, 0});
 }
 
 void SceneDrawer::drawScene() {
-    SDL_Color backgroundColor;
-    backgroundColor.r = 0xCC;
-    backgroundColor.g = 0xCC;
-    backgroundColor.b = 0xCC;
+    SDL_Color backgroundColor = (SDL_Color) {0xCC, 0xCC, 0xCC};
 
     this->clearBackground(&backgroundColor);
-    
+
     this->printString(this->font1, "Titulo", 200, 200);
     this->printString(this->font2, "Hola que tal", 200, 300);
+
+    int x = 0;
+    int y = 400;
+    int interlinearSpace = 15;
+
+    this->printString(this->font3, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor", x, y + 0 * interlinearSpace);
+    this->printString(this->font3, "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis", x, y + 1 * interlinearSpace);
+    this->printString(this->font3, "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", x, y + 2 * interlinearSpace);
+    this->printString(this->font3, "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore", x, y + 3 * interlinearSpace);
 }
 
 void SceneDrawer::clearBackground(SDL_Color* backgroundColor) {
@@ -55,6 +62,7 @@ void SceneDrawer::printString(Font *font, string text, int x, int y) {
 SceneDrawer::~SceneDrawer() {
     delete this->font1;
     delete this->font2;
+    delete this->font3;
 }
 
 string SceneDrawer::resolveFontName(string relativeFontName) {

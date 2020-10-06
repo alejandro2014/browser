@@ -13,7 +13,7 @@ private:
     SDL_Window* window;
     SDL_Surface* screenSurface;
     SDL_Renderer *renderer;
-    Font *font1, *font2;
+    Font *font1, *font2, *font3;
 
 public:
     SceneDrawer(SDL_Window *window, SDL_Surface* screenSurface);
