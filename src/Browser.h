@@ -4,6 +4,7 @@
 #include "Font.h"
 #include "SceneDrawer.h"
 
+#include <iostream>
 #include <SDL2/SDL.h>
 
 class Browser {

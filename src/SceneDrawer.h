@@ -6,6 +6,8 @@
 #include <SDL2/SDL.h>
 #include <string>
 
+using namespace std;
+
 class SceneDrawer {
 private:
     SDL_Window* window;
@@ -18,7 +20,9 @@ public:
     ~SceneDrawer();
 
     void drawScene();
-    void printString(Font *font, std::string *text, int x, int y);
+    void printString(Font *font, string text, int x, int y);
+
+    string resolveFontName(string relativeFontName);
 };
 
 #endif

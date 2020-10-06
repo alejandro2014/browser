@@ -1,13 +1,9 @@
 #include "Font.h"
 
-#include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-
 using namespace std;
 
-Font::Font(const char *path, int size, SDL_Color fg) {
-    this->type = TTF_OpenFont(path, size);
+Font::Font(string path, int size, SDL_Color fg) {
+    this->type = TTF_OpenFont(path.c_str(), size);
 
     if(this->type == NULL) {
         cout << "Could not load the font " << path << endl;
