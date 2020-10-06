@@ -24,25 +24,31 @@ void SceneDrawer::drawScene() {
     this->printString(this->font1, "Titulo", 200, 200);
     this->printString(this->font2, "Hola que tal", 200, 300);
 
-    int x = 0;
-    int y = 400;
-    int interlinearSpace = 15;
+    this->printString("Any text", this->font3, 0, 400, 15);
+}
 
+vector<string> SceneDrawer::getLines(string originalLine) {
     vector<string> textLines;
+
     textLines.push_back("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
     textLines.push_back("incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis");
     textLines.push_back("nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
     textLines.push_back("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore");
 
-    this->printString(this->font3, textLines[0], x, y + 0 * interlinearSpace);
-    this->printString(this->font3, textLines[1], x, y + 1 * interlinearSpace);
-    this->printString(this->font3, textLines[2], x, y + 2 * interlinearSpace);
-    this->printString(this->font3, textLines[3], x, y + 3 * interlinearSpace);
+    return textLines;
 }
 
 void SceneDrawer::clearBackground(SDL_Color* backgroundColor) {
     SDL_SetRenderDrawColor(this->renderer, backgroundColor->r, backgroundColor->g, backgroundColor->b, 255);
     SDL_RenderClear(this->renderer);
+}
+
+void SceneDrawer::printString(string text, Font *font, int x, int y, int interlinearSpace) {
+    vector<string> textLines = this->getLines(text);
+
+    for(int i = 0; i < textLines.size(); i++) {
+        this->printString(font, textLines[i], x, y + i * interlinearSpace);
+    }
 }
 
 void SceneDrawer::printString(Font *font, string text, int x, int y) {

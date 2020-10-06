@@ -7,7 +7,6 @@
 #include <string>
 #include <vector>
 
-
 using namespace std;
 
 class SceneDrawer {
@@ -24,6 +23,10 @@ public:
     void drawScene();
 
     void clearBackground(SDL_Color* backgroundColor);
+
+    vector<string> getLines(string originalLine);
+
+    void printString(string text, Font *font, int x, int y, int interlinearSpace);
     void printString(Font *font, string text, int x, int y);
 
     string resolveFontName(string relativeFontName);
