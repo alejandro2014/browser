@@ -24,10 +24,11 @@ void SceneDrawer::drawScene() {
     this->printString(this->font1, "Titulo", 200, 200);
     this->printString(this->font2, "Hola que tal", 200, 300);
 
-    this->printString("Any text", this->font3, 0, 400, 15);
+    this->printString("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore", this->font3, 0, 400, 15);
 }
 
 vector<string> SceneDrawer::getLines(string originalLine) {
+    
     vector<string> textLines;
 
     textLines.push_back("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
@@ -36,6 +37,18 @@ vector<string> SceneDrawer::getLines(string originalLine) {
     textLines.push_back("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore");
 
     return textLines;
+}
+
+vector<int> SceneDrawer::getStringSpacePositions(string text) {
+    vector<int> spacePositions;
+
+    for(int i = 0; i < originalLine.size(); i++) {
+        if(text[i] == ' ') {
+            spacePositions.push_back(i);
+        }
+    }
+
+    return spacePositions;
 }
 
 void SceneDrawer::clearBackground(SDL_Color* backgroundColor) {
