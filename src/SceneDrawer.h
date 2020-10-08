@@ -24,7 +24,7 @@ public:
 
     void clearBackground(SDL_Color* backgroundColor);
 
-    vector<string> getLines(string originalLine);
+    vector<string> getLines(string originalLine, int x, int y, int width);
 
     void printString(string text, Font *font, int x, int y, int interlinearSpace);
     void printString(Font *font, string text, int x, int y);

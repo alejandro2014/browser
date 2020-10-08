@@ -27,9 +27,23 @@ void SceneDrawer::drawScene() {
     this->printString("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore", this->font3, 0, 400, 15);
 }
 
-vector<string> SceneDrawer::getLines(string originalLine) {
-    
+vector<string> SceneDrawer::getLines(string originalLine, int x, int y, int width) {
+    vector<int> spacePositions = this->getStringSpacePositions(originalLine);
     vector<string> textLines;
+    int startPosition = 0;
+    Font *font = this->font3;
+
+    for(int i = 0; i < spacePositions.size(); i++) {
+        string substring = originalLine.substr(startPosition, spacePositions[i]);
+        int w, h;
+
+        TTF_SizeText(font, substring.c_str(), &w, &h);
+
+        if(w > width) {
+            substring = originalLine.substr(startPosition, spacePositions[i - 1]);
+            textLines.push_back(substring);
+        }
+    }
 
     textLines.push_back("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor");
     textLines.push_back("incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis");
@@ -57,7 +71,7 @@ void SceneDrawer::clearBackground(SDL_Color* backgroundColor) {
 }
 
 void SceneDrawer::printString(string text, Font *font, int x, int y, int interlinearSpace) {
-    vector<string> textLines = this->getLines(text);
+    vector<string> textLines = this->getLines(text, x, y, 800);
 
     for(int i = 0; i < textLines.size(); i++) {
         this->printString(font, textLines[i], x, y + i * interlinearSpace);
